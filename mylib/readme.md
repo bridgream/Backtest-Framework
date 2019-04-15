@@ -1,3 +1,25 @@
+2019/4/15 更新
+
+backtest.py
+
+1. 修复了一些内部错误，通过移除Pandas.DataFrame.append()，速度提升约15倍。
+2. 允许用户关闭参数检验了。
+3. 增加了``BackTestFramework.adjust_to_value()``功能，将仓位调整到对应的指定价值。
+4. 增加了``BackTestFramework.log_output()``功能，将交易日志导出到Excel文档中。
+
+
+
+2019/4/10 更新
+
+backtest.py（还存在 bug，待下次修复）
+
+1. 逐步加入对期权的支持。现在所有交易单位为"手"，例如对于股票，默认一手为 100 股。
+2. 给 benchmark 作图时，基准价值与初始现金成比例。
+3. 手续费默认修改为 0。
+4. 其他内部逻辑优化。现在速度又可以提升数十倍了。
+
+
+
 2019/4/8 更新
 
 backtest.py
