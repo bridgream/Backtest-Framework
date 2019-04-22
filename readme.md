@@ -108,7 +108,7 @@ Available parameters: see Public Read-Write Attributes.
 
 7. `today`：今天的日期。
 
-8. `yesterday`：上个交易日的日期。
+8. `last_trading_day`：上个交易日的日期。
 
    > 用法建议：灵活使用这两个属性，有助于构建比较复杂的交易策略。常用于根据前一日的收盘情况进行交易。
 
@@ -122,9 +122,14 @@ Available parameters: see Public Read-Write Attributes.
 4. `adjust_to_value(security: str or list, new_value)`：将资产的仓位调整到指定的价值。
 5. `adjust_to_portion_of_value(security: str or list, portion_of_value)`：将资产的仓位调整到对当前价值的指定比例上。
 6. `adjust_to_by_portion(security: str or list, portion, otherwise_position=0)`：按比例扩大或缩小当前仓位。
-7. `strategy()`：策略函数，用户需要重载该函数，让框架在每个交易日作判断，进行交易。
+7. `strategy()`：策略函数，用户需要重载该函数，让框架在每个交易日作判断，进行交易。重载命令为``mybacktest.strategy = strategy.__get__(mybacktest, BackTestFramework)``，其中``mybacktest``需要改成用户设置的实例名称。
 8. `user_initialize()`：用户指定的初始化函数，默认为 `pass`。
 9. `user_finalize()`：用户指定的最后处理函数，默认为 `pass`。
 10. `run()`：启动回测。
 11. `summary(save_pic=False, pic_name='image.png')`：作图，汇报最大回撤、年化收益率和夏普比率。
-12. `log_output(file_name='result.xlsx')`：将交易日志、动态历史仓位、动态历史价值、所用的价格矩阵输出到 Excel 文档中。
+12. ``plot_rolling_sr(window_size)``：作出滚动 Sharpe Ratio 曲线。
+13. `log_to_excel(file_name='result.xlsx')`：将交易日志、动态历史仓位、动态历史价值、所用的价格矩阵输出到 Excel 文档中。
+14. ``winning_analyzer()``：根据每个完整的建仓、平仓过程，计算收益情况和胜率。
+15. ``calculate_winning_percentage_by_security()``：根据交易日志分资产计算胜率。
+16. ``calculate_winning_percentage_by_year()``：根据交易日志分年度计算胜率。
+
