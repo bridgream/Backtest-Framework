@@ -1,3 +1,33 @@
+2019/5/15 更新
+
+optimization.py
+
+1. 加入`Optimization.grid_search_target_calmar()`，这是一个基于回测数据调整仓位、以最大化 Calmar 比例的函数。
+
+
+
+2019/5/6 更新
+
+optimization.py
+
+1. 加入`Optimization.grid_search()`。
+
+
+
+2019/4/24 更新
+
+backtest.py
+
+1. 增加了``BackTestFramework.pct_change``属性，通过传入日涨跌幅矩阵，程序将自动检查涨跌幅，同时在输出日志时同时输出当日涨跌幅度。
+2. 增加了一些安全性检查。
+
+measure.py
+
+1. 增加了``Measure.get_downside_deviation()``便于计算下行波动率。
+2. 增加了``Measure.get_rolling_downside_deviation()``便于计算滚动的下行波动率。
+
+
+
 2019/4/22 更新
 
 backtest.py
